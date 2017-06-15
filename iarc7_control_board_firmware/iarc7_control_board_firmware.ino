@@ -108,10 +108,10 @@ void loop()
   back.update();
 
   foot_switches_state.header.stamp = nh.now();
-  foot_switches_state.left = left.read();
   foot_switches_state.right = right.read();
-  foot_switches_state.front = front.read();
-  foot_switches_state.back = back.read();
+  foot_switches_state.left = foot_switches_state.right;
+  foot_switches_state.front = foot_switches_state.right;
+  foot_switches_state.back = foot_switches_state.right;
   foot_switches.publish( &foot_switches_state );
 
   range_msg.header.stamp = nh.now();
